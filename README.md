@@ -1,17 +1,65 @@
-# klimato
+# Klimato
 
-A new Flutter project.
+Aplikasi cuaca berbasis Flutter menggunakan **wttr.in API**.
 
-## Getting Started
+## Fitur
 
-This project is a starting point for a Flutter application.
+- **Cuaca Saat Ini** — Lihat suhu, kecepatan angin, dan kondisi cuaca terkini
+- **Prakiraan 7 Hari** — Lihat prediksi suhu max/min harian
+- **Cari Kota** — Cari kota di seluruh dunia
+- **Simpan Kota** — Simpan kota favorit untuk akses cepat
+- **Unit Suhu** — Ganti antara Celsius dan Fahrenheit
+- **Clean Architecture** — Data, Domain, Presentation layers
+- **State Management** — BLoC (flutter_bloc)
+- **Dependency Injection** — get_it
 
-A few resources to get you started if this is your first Flutter project:
+## Cara Menjalankan
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+```bash
+# Clone & masuk folder
+cd klimato
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Install dependencies
+flutter pub get
+
+# Run di device/emulator
+flutter run
+
+# Build APK release
+flutter build apk --release
+```
+
+## Tech Stack
+
+| Komponen | Library |
+|----------|---------|
+| State Management | flutter_bloc |
+| HTTP Client | http |
+| Local Storage | shared_preferences |
+| DI | get_it |
+| Functional | dartz |
+| Geocoding | Open-Meteo Geocoding API |
+
+## Struktur Proyek
+
+```
+lib/
+├── core/           # Shared utilities, errors, usecase
+├── data/           # Data layer (models, datasources, repositories)
+│   ├── datasources/   # API & local storage calls
+│   ├── models/        # JSON serialization
+│   └── repositories/  # Repository implementations
+├── domain/         # Domain layer (entities, repositories, usecases)
+│   ├── entities/      # Business objects
+│   ├── repositories/  # Abstract repository interfaces
+│   └── usecases/      # Business logic
+├── presentation/   # Presentation layer (BLoCs, pages)
+│   ├── blocs/         # State management
+│   └── pages/         # UI screens
+└── injection_container.dart  # DI setup
+```
+
+## API
+
+- **Cuaca**: [wttr.in](https://wttr.in) — API cuaca gratis tanpa API key
+- **Geocoding**: [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api) — pencarian kota
