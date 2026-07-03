@@ -6,14 +6,14 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Settings')),
+      appBar: AppBar(title: Text('Pengaturan')),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
           if (state is SettingsLoaded) {
             return ListView(
               children: [
                 SwitchListTile(
-                  title: Text('Temperature Unit'),
+                  title: Text('Satuan Suhu'),
                   subtitle: Text(state.isCelsius ? 'Celsius (Â°C)' : 'Fahrenheit (Â°F)'),
                   value: state.isCelsius,
                   onChanged: (value) {

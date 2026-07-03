@@ -46,12 +46,12 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.location_city),
-              title: Text('Saved Cities'),
+              title: Text('Kota Tersimpan'),
               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SavedCitiesPage())),
             ),
             ListTile(
               leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              title: Text('Pengaturan'),
               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SettingsPage())),
             ),
           ],
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                         WeatherHelper.formatTemp(state.weather.temperature, isCelsius),
                         style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
                       ),
-                      Text('Wind: ${state.weather.windspeed} km/h'),
+                      Text('Angin: ${state.weather.windspeed} km/h'),
                       SizedBox(height: 40),
                       ElevatedButton(
                         onPressed: () {
@@ -96,14 +96,14 @@ class _HomePageState extends State<HomePage> {
                             MaterialPageRoute(builder: (_) => ForecastPage(weather: state.weather, city: state.city)),
                           );
                         },
-                        child: Text('View 7-Day Forecast'),
+                        child: Text('Lihat Prakiraan 7 Hari'),
                       ),
                       ElevatedButton(
                         onPressed: () {
                           context.read<SavedCityBloc>().add(SaveCityEvent(state.city));
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('City saved!')));
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Kota tersimpan!')));
                         },
-                        child: Text('Save City'),
+                        child: Text('Simpan Kota'),
                       )
                     ],
                   ),

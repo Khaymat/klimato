@@ -10,7 +10,7 @@ class SearchPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => sl<CitySearchBloc>(),
       child: Scaffold(
-        appBar: AppBar(title: Text('Search City')),
+        appBar: AppBar(title: Text('Cari Kota')),
         body: Column(
           children: [
             Padding(
@@ -19,7 +19,7 @@ class SearchPage extends StatelessWidget {
                 builder: (context) {
                   return TextField(
                     decoration: InputDecoration(
-                      labelText: 'City Name',
+                      labelText: 'Nama Kota',
                       border: OutlineInputBorder(),
                       suffixIcon: Icon(Icons.search),
                     ),
@@ -38,7 +38,7 @@ class SearchPage extends StatelessWidget {
                   } else if (state is CitySearchError) {
                     return Center(child: Text(state.message));
                   } else if (state is CitySearchLoaded) {
-                    if (state.cities.isEmpty) return Center(child: Text('No cities found'));
+                    if (state.cities.isEmpty) return Center(child: Text('Kota tidak ditemukan'));
                     return ListView.builder(
                       itemCount: state.cities.length,
                       itemBuilder: (context, index) {
@@ -55,7 +55,7 @@ class SearchPage extends StatelessWidget {
                       },
                     );
                   }
-                  return Center(child: Text('Enter a city name'));
+                  return Center(child: Text('Masukkan nama kota'));
                 },
               ),
             ),

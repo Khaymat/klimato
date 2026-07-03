@@ -14,7 +14,7 @@ class ForecastPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('${city.name} Forecast')),
+      appBar: AppBar(title: Text('Prakiraan ${city.name}')),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, settingsState) {
           bool isCelsius = true;
@@ -31,7 +31,7 @@ class ForecastPage extends StatelessWidget {
                   style: TextStyle(fontSize: 32),
                 ),
                 title: Text(daily.time),
-                subtitle: Text('Max: ${WeatherHelper.formatTemp(daily.maxTemp, isCelsius)} / Min: ${WeatherHelper.formatTemp(daily.minTemp, isCelsius)}'),
+                subtitle: Text('Maks: ${WeatherHelper.formatTemp(daily.maxTemp, isCelsius)} / Min: ${WeatherHelper.formatTemp(daily.minTemp, isCelsius)}'),
               );
             },
           );

@@ -1,14 +1,15 @@
 # Klimato
 
-Aplikasi cuaca berbasis Flutter menggunakan **wttr.in API**.
+Aplikasi cuaca berbasis Flutter menggunakan **wttr.in API** dengan antarmuka Bahasa Indonesia.
 
 ## Fitur
 
 - **Cuaca Saat Ini** — Lihat suhu, kecepatan angin, dan kondisi cuaca terkini
-- **Prakiraan 7 Hari** — Lihat prediksi suhu max/min harian
+- **Prakiraan 7 Hari** — Lihat prediksi suhu maks/min harian
 - **Cari Kota** — Cari kota di seluruh dunia
 - **Simpan Kota** — Simpan kota favorit untuk akses cepat
 - **Unit Suhu** — Ganti antara Celsius dan Fahrenheit
+- **Bahasa Indonesia** — Seluruh antarmuka menggunakan Bahasa Indonesia
 - **Clean Architecture** — Data, Domain, Presentation layers
 - **State Management** — BLoC (flutter_bloc)
 - **Dependency Injection** — get_it

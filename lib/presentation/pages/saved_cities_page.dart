@@ -7,7 +7,7 @@ class SavedCitiesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Saved Cities')),
+      appBar: AppBar(title: Text('Kota Tersimpan')),
       body: BlocBuilder<SavedCityBloc, SavedCityState>(
         builder: (context, state) {
           if (state is SavedCityLoading) {
@@ -15,7 +15,7 @@ class SavedCitiesPage extends StatelessWidget {
           } else if (state is SavedCityError) {
             return Center(child: Text(state.message));
           } else if (state is SavedCityLoaded) {
-            if (state.cities.isEmpty) return Center(child: Text('No saved cities.'));
+            if (state.cities.isEmpty) return Center(child: Text('Belum ada kota tersimpan.'));
             return ListView.builder(
               itemCount: state.cities.length,
               itemBuilder: (context, index) {
